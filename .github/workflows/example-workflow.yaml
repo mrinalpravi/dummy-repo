@@ -1,5 +1,10 @@
 name: 'Hello World'
 description: 'Greet someone'
+on:
+  push:
+    branches:
+    - main
+    - release/*
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
