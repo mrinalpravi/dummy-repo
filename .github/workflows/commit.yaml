@@ -18,5 +18,5 @@ jobs:
             await github.rest.issues.createComment({
               ...context.repo,
               issue_number: prNumber,
-              body: `Hi, thanks for the commit @${author}! 🚀`
+              body: `Hi, thanks for hi the commit @${author}! 🚀`
             });
