@@ -1,22 +1,22 @@
-name: Comment on PR Commit
+name: Comment on PR
 
 on:
   pull_request:
-    types: [synchronize, opened]
+    types: [opened, synchronize]
 
 jobs:
-  comment:
+  add-comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Add comment to PR
+      - name: Comment on PR
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.payload.pull_request.number;
             const author = context.payload.pull_request.user.login;
-            const body = `Hi, thanks for the commit @${author} 🎉`;
+
             await github.rest.issues.createComment({
               ...context.repo,
               issue_number: prNumber,
-              body: body
+              body: `Hi, thanks for the commit @${author}! 🚀`
             });
